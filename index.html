@@ -6,7 +6,7 @@
   <title>Мой сайт</title>
   <style>
     body {
-      background-color: #222;
+      background-color: #111;
       color: #fff;
       font-family: 'Arial', sans-serif;
       display: flex;
@@ -16,10 +16,11 @@
       min-height: 100vh;
       margin: 0;
       overflow: hidden; /* Скрываем прокрутку */
+      background: linear-gradient(to bottom, #111, #222); /* Добавляем градиент */
     }
 
     .container {
-      background-color: #111;
+      background-color: #222;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -28,14 +29,17 @@
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem; /* Увеличиваем размер шрифта */
       margin-bottom: 20px;
       position: relative; /* Для позиционирования анимации */
       animation: glitch 1s infinite alternate; /* Анимация глюков */
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff; /* Добавляем тень к заголовку */
     }
 
     p {
       margin-bottom: 30px;
+      font-size: 1.3rem; /* Увеличиваем размер шрифта */
+      line-height: 1.6; /* Увеличиваем межстрочный интервал */
     }
 
     .buttons {
@@ -58,25 +62,33 @@
       border-radius: 5px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.3s; /* Добавляем transition для transform */
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Добавляем тень к кнопкам */
     }
 
     button:hover {
       background-color: #555;
+      transform: scale(1.1); /* Увеличиваем размер при наведении */
     }
 
     img {
-      max-width: 300px;
+      max-width: 350px; /* Увеличиваем максимальную ширину фото */
       margin-bottom: 30px;
       border-radius: 10px;
+      border: 2px solid #fff; /* Добавляем рамку вокруг фото */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Добавляем тень к фото */
+    }
+
+    .projects-button {
+      margin-bottom: 20px; /* Отступ снизу для разделения */
     }
 
     .projects-modal {
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #111;
+            transform: translate(-50%, -50%);
+      background-color: #222;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -93,6 +105,7 @@
     .projects-modal h2 {
       font-size: 2rem;
       margin-bottom: 15px;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff; /* Добавляем тень к заголовку */
     }
 
     .close-button {
@@ -127,11 +140,12 @@
     <img src="your_photo.jpg" alt="Ваше фото"> 
     <h1 id="name">Welcome to my bio!</h1>
     <p>-Name: Rebik<br>
-   -Age: 15<br>
-   -Фуллстак программист, пентестер, не доксер, не сватер!<br><br>
+      -Age: 15<br>
+      -Фуллстак программист, пентестер, не доксер, не сватер!<br><br>
+      -В разработке бесплатный софт для пробива!<br><br>
     </p>
 
-    <button id="open-projects">Projects</button>
+    <div class="projects-button"> <button id="open-projects">Projects</button> </div>
 
     <div class="buttons" id="buttons">
       <a href="https://t.me/visionclubchannel" target="_blank">
