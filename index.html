@@ -15,6 +15,7 @@
       justify-content: center;
       min-height: 100vh;
       margin: 0;
+      overflow: hidden; /* Скрываем прокрутку */
     }
 
     .container {
@@ -23,11 +24,14 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       text-align: center;
+      position: relative; /* Для позиционирования анимации */
     }
 
     h1 {
       font-size: 2.5rem;
       margin-bottom: 20px;
+      position: relative; /* Для позиционирования анимации */
+      animation: glitch 1s infinite alternate; /* Анимация глюков */
     }
 
     p {
@@ -38,6 +42,12 @@
       display: flex;
       justify-content: center;
       gap: 20px;
+      opacity: 0; /* Скрываем кнопки */
+      transition: opacity 0.5s ease-in-out; /* Плавно отображаем кнопки */
+    }
+
+    .buttons.show {
+      opacity: 1;
     }
 
     button {
@@ -60,18 +70,70 @@
       margin-bottom: 30px;
       border-radius: 10px;
     }
+
+    .projects-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #111;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      display: none; /* Скрываем по умолчанию */
+      width: 80%;
+      max-width: 500px;
+    }
+
+    .projects-modal.show {
+      display: block;
+    }
+
+    .projects-modal h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0, 0);
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+      }
+      50% {
+        transform: translate(-5px, 5px);
+        text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+      }
+      100% {
+        transform: translate(5px, -5px);
+        text-shadow: 0 0 5px #f00, 0 0 10px #f00;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <img src="your_photo.jpg" alt="Ваше фото"> 
-    <h1>Welxcome to my bio!</h1>
+    <h1 id="name">Welcome to my bio!</h1>
     <p>-Name: Rebik<br>
    Age: 15<br>
    Фуллстак программист, пентестер, не доксер, не сватер!<br><br>
-    Projects: Only Telegram Channel</p>
+    </p>
 
-    <div class="buttons">
+    <button id="open-projects">Projects</button>
+
+    <div class="buttons" id="buttons">
       <a href="https://t.me/visionclubchannel" target="_blank">
         <button>Телеграм канал</button>
       </a>
@@ -83,5 +145,34 @@
       </a>
     </div>
   </div>
+
+  <div class="projects-modal" id="projects-modal">
+    <button class="close-button" id="close-projects">✕</button>
+    <h2>Projects</h2>
+    <p>Only Telegram Channel</p>
+  </div>
+
+  <script>
+    const name = document.getElementById('name');
+    const buttons = document.getElementById('buttons');
+    const openProjectsButton = document.getElementById('open-projects');
+    const projectsModal = document.getElementById('projects-modal');
+    const closeProjectsButton = document.getElementById('close-projects');
+
+    // Задержка перед появлением кнопок
+    setTimeout(() => {
+      buttons.classList.add('show');
+    }, 1000);
+
+    // Открытие модального окна для проектов
+    openProjectsButton.addEventListener('click', () => {
+      projectsModal.classList.add('show');
+    });
+
+    // Закрытие модального окна для проектов
+    closeProjectsButton.addEventListener('click', () => {
+      projectsModal.classList.remove('show');
+    });
+  </script>
 </body>
 </html>
