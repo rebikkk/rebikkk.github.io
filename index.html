@@ -87,7 +87,7 @@
       position: fixed;
       top: 50%;
       left: 50%;
-            transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
       background-color: #222;
       padding: 30px;
       border-radius: 10px;
@@ -119,6 +119,24 @@
       cursor: pointer;
     }
 
+    .projects-modal a button {
+      position: relative; /* Для позиционирования надписи */
+    }
+
+    .projects-modal a button::after {
+      content: "3.52 KB";
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      font-size: 0.8rem;
+      color: #fff;
+    }
+
+    .projects-modal a {
+      display: block; /* Делаем ссылки блочными элементами */
+      margin-bottom: 15px; /* Добавляем отступ снизу между ссылками */
+    }
+
     @keyframes glitch {
       0% {
         transform: translate(0, 0);
@@ -142,7 +160,7 @@
     <p>-Name: Rebik<br>
       -Age: 15<br>
       -Фуллстак программист, пентестер, не доксер, не сватер!<br><br>
-      -В разработке бесплатный софт для пробива!<br><br>
+      -Бесплатный софт для пробива уже готов! Скорее жми на Projects<br><br>
     </p>
 
     <div class="projects-button"> <button id="open-projects">Projects</button> </div>
@@ -157,13 +175,20 @@
       <a href="https://github.com/rebikkk" target="_blank">
         <button>GitHub</button>
       </a>
-    </div>
+          </div>
   </div>
 
   <div class="projects-modal" id="projects-modal">
     <button class="close-button" id="close-projects">✕</button>
     <h2>Projects</h2>
     <p>Only Telegram Channel</p>
+    <a href="https://t.me/visionclubchannel" target="_blank">
+      <button>Телеграм канал</button>
+    </a> 
+    <a href="#" id="download-link"> 
+      <button>Скачать софт</button>
+    </a>
+    <p id="download-message"></p>
   </div>
 
   <script>
@@ -172,6 +197,9 @@
     const openProjectsButton = document.getElementById('open-projects');
     const projectsModal = document.getElementById('projects-modal');
     const closeProjectsButton = document.getElementById('close-projects');
+    const downloadLink = document.getElementById('download-link');
+    const downloadMessage = document.getElementById('download-message');
+    const downloadUrl = "https://drive.google.com/file/d/11lDdnmfNqVEzPSp1bp7oN4GBH16C-KOq/view?usp=drivesdk"; // Ссылка на софт
 
     // Задержка перед появлением кнопок
     setTimeout(() => {
@@ -186,6 +214,17 @@
     // Закрытие модального окна для проектов
     closeProjectsButton.addEventListener('click', () => {
       projectsModal.classList.remove('show');
+    });
+
+    // Обработка клика на кнопку "Скачать софт"
+    downloadLink.addEventListener('click', (event) => {
+      event.preventDefault(); // Предотвращаем переход по ссылке
+
+      downloadMessage.textContent = "Подпишись на телеграм канал чтобы продолжить https://t.me/visionclubchannel/";
+
+      setTimeout(() => {
+        window.location.href = downloadUrl; // Переход по ссылке после 3 секунд
+      }, 3000);
     });
   </script>
 </body>
