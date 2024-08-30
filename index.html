@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мой профиль</title>
+  <title>Мой сайт</title>
   <style>
     body {
-      background-color: #181818;
+      background-color: #222;
       color: #fff;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Arial', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -18,53 +18,69 @@
     }
 
     .container {
-      background-color: #282828;
+      background-color: #111;
       padding: 30px;
       border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       text-align: center;
     }
 
     h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .buttons {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
     }
 
-    .button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 15px 30px;
+    button {
+      background-color: #333;
+      color: #fff;
       border: none;
+      padding: 15px 30px;
       border-radius: 5px;
-      font-size: 1.1em;
+      font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s;
     }
 
-    .button:hover {
-      background-color: #45a049;
+    button:hover {
+      background-color: #555;
+    }
+
+    img {
+      max-width: 300px;
+      margin-bottom: 30px;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Ваше имя</h1>
-    <p></p>
+    <img src="your_photo.jpg" alt="Ваше фото"> 
+    <h1>Welxcome to my bio!</h1>
+    <p>-Name: Rebik<br>
+   Age: 15<br>
+   Фуллстак программист, пентестер, не доксер, не сватер!<br><br>
+    Projects: Only Telegram Channel</p>
 
     <div class="buttons">
-      <a href="#" class="button">Телеграм канал</a>
-      <a href="#" class="button">Личные сообщения</a>
-      <a href="#" class="button">GitHub</a>
+      <a href="https://t.me/visionclubchannel" target="_blank">
+        <button>Телеграм канал</button>
+      </a>
+      <a href="https://t.me/cyberrebik" target="_blank">
+        <button>ЛС Телеграм</button>
+      </a>
+      <a href="https://github.com/rebikkk" target="_blank">
+        <button>GitHub</button>
+      </a>
     </div>
   </div>
 </body>
